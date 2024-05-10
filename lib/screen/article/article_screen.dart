@@ -77,17 +77,19 @@ class _ArticleScreenState extends State<ArticleScreen> {
   Widget build(BuildContext context) {
     final _currentUser = FirebaseAuth.instance.currentUser!;
     Future.delayed(Duration(seconds: 5), () async {
-      try {
-        await FirebaseFirestore.instance
-            .collection('users')
-            .doc(_currentUser.uid)
-            .update(
-          {
-            'history': FieldValue.arrayUnion([widget.article.id])
-          },
-        );
-      } catch (e) {
-        print(e);
+      if (widget.article.status == 'approved') {
+        try {
+          await FirebaseFirestore.instance
+              .collection('users')
+              .doc(_currentUser.uid)
+              .update(
+            {
+              'history': FieldValue.arrayUnion([widget.article.id])
+            },
+          );
+        } catch (e) {
+          print(e);
+        }
       }
     });
 
