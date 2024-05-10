@@ -44,10 +44,8 @@ class _LikedArticleScreenState extends State<LikedArticleScreen> {
               var userArticle =
                   snapshot.data!.data()!['liked'].reversed.toList();
               if (userArticle.isEmpty) {
-                return const Expanded(
-                  child: Center(
-                    child: Text('No Article found, maybe like one?'),
-                  ),
+                return const Center(
+                  child: Text('No Article found, maybe like one?'),
                 );
               }
               return ListView.builder(
