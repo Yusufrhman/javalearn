@@ -23,8 +23,7 @@ class _ArticleCardState extends State<ArticleCard> {
         .get();
 
     final userLikes = userData.data()!['liked'];
-    print('wkwk');
-    print(userLikes);
+
     if (_isLiked) {
       _totalLike--;
       setState(
@@ -112,6 +111,7 @@ class _ArticleCardState extends State<ArticleCard> {
                         image: NetworkImage(widget.article.imageUrl),
                         fit: BoxFit.cover,
                         width: MediaQuery.of(context).size.width * 0.25,
+                        height: MediaQuery.of(context).size.width * 0.25,
                       ),
                     ),
                     Column(
