@@ -84,65 +84,61 @@ class _ProfileScreenState extends State<ProfileScreen> {
         const SizedBox(
           height: 40,
         ),
-        widget.isAdmin
-            ? const SizedBox(
-                height: 0,
-              )
-            : Ink(
-                decoration: const BoxDecoration(
-                  color: Color.fromARGB(255, 104, 16, 136),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20),
-                  ),
-                ),
-                child: InkWell(
-                  borderRadius: const BorderRadius.all(Radius.circular(20)),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.all(10),
-                            decoration: const BoxDecoration(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(50),
-                              ),
-                            ),
-                            child: const Icon(
-                              Icons.person,
-                              size: 40,
-                              color: Color.fromARGB(255, 255, 255, 255),
-                            ),
-                          ),
-                          Text(
-                            "Edit Profile",
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium!
-                                .copyWith(color: Colors.white),
-                          ),
-                        ],
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Icon(
-                          Icons.keyboard_arrow_right,
-                          color: Colors.white,
+        Ink(
+          decoration: const BoxDecoration(
+            color: Color.fromARGB(255, 104, 16, 136),
+            borderRadius: BorderRadius.all(
+              Radius.circular(20),
+            ),
+          ),
+          child: InkWell(
+            borderRadius: const BorderRadius.all(Radius.circular(20)),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(10),
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(50),
                         ),
                       ),
-                    ],
-                  ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const EditProfileScreen(),
+                      child: const Icon(
+                        Icons.person,
+                        size: 40,
+                        color: Color.fromARGB(255, 255, 255, 255),
                       ),
-                    );
-                  },
+                    ),
+                    Text(
+                      "Edit Profile",
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium!
+                          .copyWith(color: Colors.white),
+                    ),
+                  ],
                 ),
-              ),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Icon(
+                    Icons.keyboard_arrow_right,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
+            ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const EditProfileScreen(),
+                ),
+              );
+            },
+          ),
+        ),
         widget.isAdmin
             ? const SizedBox(
                 height: 0,

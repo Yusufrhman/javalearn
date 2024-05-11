@@ -45,7 +45,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           'name': _name,
           'articles': [],
           'history': [],
-          'liked' : [],
+          'liked': [],
           'is_admin': false
         },
       );
@@ -261,7 +261,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const RegisterScreen(),
+                      builder: (context) => const LoginScreen(),
                     ),
                   );
                 },
