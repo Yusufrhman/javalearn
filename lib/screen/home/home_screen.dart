@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Column(
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.65,
@@ -40,10 +40,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   style: Theme.of(context)
                       .textTheme
                       .bodyLarge!
-                      .copyWith(fontSize: 24, color: Colors.black),
+                      .copyWith(fontSize: 18, color: Colors.black),
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
+              const Spacer(),
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.2,
                 height: MediaQuery.of(context).size.width * 0.2,
@@ -95,53 +96,59 @@ class _HomeScreenState extends State<HomeScreen> {
                       label: const Text('Art'),
                       style: _selectedFilterCategory == Category.art.name
                           ? ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                const Color.fromARGB(255, 255, 255, 255),
+                              foregroundColor:
+                                  const WidgetStatePropertyAll<Color>(
+                                Color.fromARGB(255, 255, 255, 255),
                               ),
-                              side: MaterialStateProperty.all<BorderSide>(
-                                const BorderSide(
+                              side: const WidgetStatePropertyAll<BorderSide>(
+                                BorderSide(
                                   color: Color.fromARGB(255, 240, 240, 240),
                                   width: 1,
                                 ),
                               ),
-                              textStyle: MaterialStateProperty.all<TextStyle>(
+                              textStyle: WidgetStatePropertyAll<TextStyle>(
                                 Theme.of(context)
                                     .textTheme
                                     .bodyMedium!
                                     .copyWith(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 18,
+                                      fontSize: 14,
                                     ),
                               ),
-                              fixedSize: MaterialStateProperty.all<Size>(
-                                  const Size(130, 60)),
-                              iconSize: MaterialStateProperty.all<double?>(40),
-                              backgroundColor: MaterialStateProperty.all<Color>(
-                                  const Color.fromARGB(255, 104, 16, 136)),
+                              minimumSize: const WidgetStatePropertyAll<Size>(
+                                  Size(0, 0)),
+                              iconSize:
+                                  const WidgetStatePropertyAll<double?>(30),
+                              backgroundColor:
+                                  const WidgetStatePropertyAll<Color>(
+                                      Color.fromARGB(255, 104, 16, 136)),
                             )
                           : ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                const Color.fromARGB(255, 104, 16, 136),
+                              foregroundColor:
+                                  const WidgetStatePropertyAll<Color>(
+                                Color.fromARGB(255, 104, 16, 136),
                               ),
-                              side: MaterialStateProperty.all<BorderSide>(
-                                const BorderSide(
+                              side: const WidgetStatePropertyAll<BorderSide>(
+                                BorderSide(
                                   color: Color.fromARGB(255, 104, 16, 136),
                                   width: 1,
                                 ),
                               ),
-                              textStyle: MaterialStateProperty.all<TextStyle>(
+                              textStyle: WidgetStatePropertyAll<TextStyle>(
                                 Theme.of(context)
                                     .textTheme
                                     .bodyMedium!
                                     .copyWith(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 18,
+                                      fontSize: 14,
                                     ),
                               ),
-                              fixedSize: MaterialStateProperty.all<Size>(
-                                  const Size(130, 60)),
-                              iconSize: MaterialStateProperty.all<double?>(40),
-                              backgroundColor: MaterialStateProperty.all<Color>(
+                              minimumSize: const WidgetStatePropertyAll<Size>(
+                                  Size(0, 0)),
+                              iconSize:
+                                  const WidgetStatePropertyAll<double?>(30),
+                              backgroundColor:
+                                  const WidgetStatePropertyAll<Color>(
                                 Colors.transparent,
                               ),
                             ),
@@ -157,53 +164,59 @@ class _HomeScreenState extends State<HomeScreen> {
                       label: const Text('Food'),
                       style: _selectedFilterCategory == Category.food.name
                           ? ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                const Color.fromARGB(255, 255, 255, 255),
+                              foregroundColor:
+                                  const WidgetStatePropertyAll<Color>(
+                                Color.fromARGB(255, 255, 255, 255),
                               ),
-                              side: MaterialStateProperty.all<BorderSide>(
-                                const BorderSide(
+                              side: const WidgetStatePropertyAll<BorderSide>(
+                                BorderSide(
                                   color: Color.fromARGB(255, 240, 240, 240),
                                   width: 1,
                                 ),
                               ),
-                              textStyle: MaterialStateProperty.all<TextStyle>(
+                              textStyle: WidgetStatePropertyAll<TextStyle>(
                                 Theme.of(context)
                                     .textTheme
                                     .bodyMedium!
                                     .copyWith(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 18,
+                                      fontSize: 14,
                                     ),
                               ),
-                              fixedSize: MaterialStateProperty.all<Size>(
-                                  const Size(130, 60)),
-                              iconSize: MaterialStateProperty.all<double?>(40),
-                              backgroundColor: MaterialStateProperty.all<Color>(
-                                  const Color.fromARGB(255, 104, 16, 136)),
+                              minimumSize: const WidgetStatePropertyAll<Size>(
+                                  Size(0, 0)),
+                              iconSize:
+                                  const WidgetStatePropertyAll<double?>(30),
+                              backgroundColor:
+                                  const WidgetStatePropertyAll<Color>(
+                                      Color.fromARGB(255, 104, 16, 136)),
                             )
                           : ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                const Color.fromARGB(255, 104, 16, 136),
+                              foregroundColor:
+                                  const WidgetStatePropertyAll<Color>(
+                                Color.fromARGB(255, 104, 16, 136),
                               ),
-                              side: MaterialStateProperty.all<BorderSide>(
-                                const BorderSide(
+                              side: const WidgetStatePropertyAll<BorderSide>(
+                                BorderSide(
                                   color: Color.fromARGB(255, 104, 16, 136),
                                   width: 1,
                                 ),
                               ),
-                              textStyle: MaterialStateProperty.all<TextStyle>(
+                              textStyle: WidgetStatePropertyAll<TextStyle>(
                                 Theme.of(context)
                                     .textTheme
                                     .bodyMedium!
                                     .copyWith(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 18,
+                                      fontSize: 14,
                                     ),
                               ),
-                              fixedSize: MaterialStateProperty.all<Size>(
-                                  const Size(130, 60)),
-                              iconSize: MaterialStateProperty.all<double?>(40),
-                              backgroundColor: MaterialStateProperty.all<Color>(
+                              minimumSize: const WidgetStatePropertyAll<Size>(
+                                  Size(0, 0)),
+                              iconSize:
+                                  const WidgetStatePropertyAll<double?>(30),
+                              backgroundColor:
+                                  const WidgetStatePropertyAll<Color>(
                                 Colors.transparent,
                               ),
                             ),
@@ -219,53 +232,59 @@ class _HomeScreenState extends State<HomeScreen> {
                       label: const Text('Language'),
                       style: _selectedFilterCategory == Category.language.name
                           ? ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                const Color.fromARGB(255, 255, 255, 255),
+                              foregroundColor:
+                                  const WidgetStatePropertyAll<Color>(
+                                Color.fromARGB(255, 255, 255, 255),
                               ),
-                              side: MaterialStateProperty.all<BorderSide>(
-                                const BorderSide(
+                              side: const WidgetStatePropertyAll<BorderSide>(
+                                BorderSide(
                                   color: Color.fromARGB(255, 240, 240, 240),
                                   width: 1,
                                 ),
                               ),
-                              textStyle: MaterialStateProperty.all<TextStyle>(
+                              textStyle: WidgetStatePropertyAll<TextStyle>(
                                 Theme.of(context)
                                     .textTheme
                                     .bodyMedium!
                                     .copyWith(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 18,
+                                      fontSize: 14,
                                     ),
                               ),
-                              fixedSize: MaterialStateProperty.all<Size>(
-                                  const Size(160, 60)),
-                              iconSize: MaterialStateProperty.all<double?>(40),
-                              backgroundColor: MaterialStateProperty.all<Color>(
-                                  const Color.fromARGB(255, 104, 16, 136)),
+                              minimumSize: const WidgetStatePropertyAll<Size>(
+                                  Size(0, 0)),
+                              iconSize:
+                                  const WidgetStatePropertyAll<double?>(30),
+                              backgroundColor:
+                                  const WidgetStatePropertyAll<Color>(
+                                      Color.fromARGB(255, 104, 16, 136)),
                             )
                           : ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                const Color.fromARGB(255, 104, 16, 136),
+                              foregroundColor:
+                                  const WidgetStatePropertyAll<Color>(
+                                Color.fromARGB(255, 104, 16, 136),
                               ),
-                              side: MaterialStateProperty.all<BorderSide>(
-                                const BorderSide(
+                              side: const WidgetStatePropertyAll<BorderSide>(
+                                BorderSide(
                                   color: Color.fromARGB(255, 104, 16, 136),
                                   width: 1,
                                 ),
                               ),
-                              textStyle: MaterialStateProperty.all<TextStyle>(
+                              textStyle: WidgetStatePropertyAll<TextStyle>(
                                 Theme.of(context)
                                     .textTheme
                                     .bodyMedium!
                                     .copyWith(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 18,
+                                      fontSize: 14,
                                     ),
                               ),
-                              fixedSize: MaterialStateProperty.all<Size>(
-                                  const Size(160, 60)),
-                              iconSize: MaterialStateProperty.all<double?>(40),
-                              backgroundColor: MaterialStateProperty.all<Color>(
+                              minimumSize: const WidgetStatePropertyAll<Size>(
+                                  Size(0, 0)),
+                              iconSize:
+                                  const WidgetStatePropertyAll<double?>(30),
+                              backgroundColor:
+                                  const WidgetStatePropertyAll<Color>(
                                 Colors.transparent,
                               ),
                             ),
@@ -281,53 +300,59 @@ class _HomeScreenState extends State<HomeScreen> {
                       label: const Text('Tribe'),
                       style: _selectedFilterCategory == Category.tribe.name
                           ? ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                const Color.fromARGB(255, 255, 255, 255),
+                              foregroundColor:
+                                  const WidgetStatePropertyAll<Color>(
+                                Color.fromARGB(255, 255, 255, 255),
                               ),
-                              side: MaterialStateProperty.all<BorderSide>(
-                                const BorderSide(
+                              side: const WidgetStatePropertyAll<BorderSide>(
+                                BorderSide(
                                   color: Color.fromARGB(255, 240, 240, 240),
                                   width: 1,
                                 ),
                               ),
-                              textStyle: MaterialStateProperty.all<TextStyle>(
+                              textStyle: WidgetStatePropertyAll<TextStyle>(
                                 Theme.of(context)
                                     .textTheme
                                     .bodyMedium!
                                     .copyWith(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 18,
+                                      fontSize: 14,
                                     ),
                               ),
-                              fixedSize: MaterialStateProperty.all<Size>(
-                                  const Size(130, 60)),
-                              iconSize: MaterialStateProperty.all<double?>(40),
-                              backgroundColor: MaterialStateProperty.all<Color>(
-                                  const Color.fromARGB(255, 104, 16, 136)),
+                              minimumSize: const WidgetStatePropertyAll<Size>(
+                                  Size(0, 0)),
+                              iconSize:
+                                  const WidgetStatePropertyAll<double?>(30),
+                              backgroundColor:
+                                  const WidgetStatePropertyAll<Color>(
+                                      Color.fromARGB(255, 104, 16, 136)),
                             )
                           : ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                const Color.fromARGB(255, 104, 16, 136),
+                              foregroundColor:
+                                  const WidgetStatePropertyAll<Color>(
+                                Color.fromARGB(255, 104, 16, 136),
                               ),
-                              side: MaterialStateProperty.all<BorderSide>(
-                                const BorderSide(
+                              side: const WidgetStatePropertyAll<BorderSide>(
+                                BorderSide(
                                   color: Color.fromARGB(255, 104, 16, 136),
                                   width: 1,
                                 ),
                               ),
-                              textStyle: MaterialStateProperty.all<TextStyle>(
+                              textStyle: WidgetStatePropertyAll<TextStyle>(
                                 Theme.of(context)
                                     .textTheme
                                     .bodyMedium!
                                     .copyWith(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 18,
+                                      fontSize: 14,
                                     ),
                               ),
-                              fixedSize: MaterialStateProperty.all<Size>(
-                                  const Size(130, 60)),
-                              iconSize: MaterialStateProperty.all<double?>(40),
-                              backgroundColor: MaterialStateProperty.all<Color>(
+                              minimumSize: const WidgetStatePropertyAll<Size>(
+                                  Size(0, 0)),
+                              iconSize:
+                                  const WidgetStatePropertyAll<double?>(30),
+                              backgroundColor:
+                                  const WidgetStatePropertyAll<Color>(
                                 Colors.transparent,
                               ),
                             ),
@@ -399,7 +424,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Category category =
                           getCategoryFromString(articleData[index]['category']);
                       return Padding(
-                        padding: const EdgeInsets.only(bottom: 16),
+                        padding: const EdgeInsets.only(bottom: 8),
                         child: ArticleCard(
                           isAdmin: widget.isAdmin,
                           article: Article(
@@ -412,7 +437,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               imageUrl: articleData[index]['image_url'],
                               likedBy: articleData[index]['liked_by'],
                               author: articleData[index]['author'],
-                              status: articleData[index]['status']),
+                              status: articleData[index]['status'],
+                              authorId: articleData[index]['userId']),
                         ),
                       );
                     },

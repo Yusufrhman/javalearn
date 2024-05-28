@@ -90,7 +90,8 @@ class _HistoryArticleScreenState extends State<HistoryArticleScreen> {
                                 date: DateTime.parse(articleData['date_added']),
                                 imageUrl: articleData['image_url'],
                                 likedBy: articleData['liked_by'],
-                                status: articleData['status']),
+                                status: articleData['status'],
+                                authorId: articleData[index]['userId']),
                           ),
                         );
                       });

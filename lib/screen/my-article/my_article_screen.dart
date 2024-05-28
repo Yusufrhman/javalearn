@@ -122,20 +122,22 @@ class _MyArticlesScreenState extends State<MyArticlesScreen> {
                             Category category =
                                 getCategoryFromString(articleData!['category']);
                             return Padding(
-                              padding: const EdgeInsets.only(bottom: 16),
+                              padding: const EdgeInsets.only(bottom: 8),
                               child: ArticleCard(
                                 isAdmin: false,
                                 article: Article(
-                                    id: userArticle[index],
-                                    title: articleData['title'],
-                                    description: articleData['description'],
-                                    category: category,
-                                    date: DateTime.parse(
-                                        articleData['date_added']),
-                                    imageUrl: articleData['image_url'],
-                                    likedBy: articleData['liked_by'],
-                                    author: articleData['author'],
-                                    status: articleData['status']),
+                                  id: userArticle[index],
+                                  title: articleData['title'],
+                                  description: articleData['description'],
+                                  category: category,
+                                  date:
+                                      DateTime.parse(articleData['date_added']),
+                                  imageUrl: articleData['image_url'],
+                                  likedBy: articleData['liked_by'],
+                                  author: articleData['author'],
+                                  status: articleData['status'],
+                                  authorId: articleData['userId'],
+                                ),
                               ),
                             );
                           });

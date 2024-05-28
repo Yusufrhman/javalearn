@@ -27,12 +27,13 @@ class Article {
     required this.imageUrl,
     required this.likedBy,
     required this.author,
+    required this.authorId,
     required this.status
 
   });
   final Category category;
   final DateTime date;
-  final String id, title, description, imageUrl, author, status;
+  final String id, title, description, imageUrl, author, status, authorId;
   final List likedBy;
 
   String get formattedDate {

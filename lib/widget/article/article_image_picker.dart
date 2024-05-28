@@ -4,10 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ArticleImagePicker extends StatefulWidget {
-  const ArticleImagePicker(
-      {super.key, required this.isNoImage, required this.onSelectImage});
+  ArticleImagePicker(
+      {super.key,
+      required this.isNoImage,
+      required this.onSelectImage,
+      this.currentImageUrl});
   final void Function(File image) onSelectImage;
   final bool isNoImage;
+  String? currentImageUrl;
 
   @override
   State<ArticleImagePicker> createState() => _ArticleImagePickerState();
@@ -51,19 +55,24 @@ class _ArticleImagePickerState extends State<ArticleImagePicker> {
                   _selectedImage!,
                   fit: BoxFit.contain,
                 )
-              : const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.add_photo_alternate,
-                      color: Color.fromARGB(255, 104, 16, 136),
+              : widget.currentImageUrl != null
+                  ? Image.network(
+                      widget.currentImageUrl!,
+                      fit: BoxFit.contain,
+                    )
+                  : const Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.add_photo_alternate,
+                          color: Color.fromARGB(255, 104, 16, 136),
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text('Add Photo')
+                      ],
                     ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Text('Add Photo')
-                  ],
-                ),
         ),
       ),
     );

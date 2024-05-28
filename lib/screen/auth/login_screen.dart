@@ -163,17 +163,17 @@ class _LoginScreenState extends State<LoginScreen> {
                       )
                     : FilledButton(
                         style: ButtonStyle(
-                            side: const MaterialStatePropertyAll(
+                            side: const WidgetStatePropertyAll(
                                 BorderSide(color: Colors.grey)),
-                            shape: MaterialStatePropertyAll(
+                            shape: WidgetStatePropertyAll(
                                 RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10))),
-                            fixedSize: const MaterialStatePropertyAll(
+                            fixedSize: const WidgetStatePropertyAll(
                                 Size.fromWidth(370)),
-                            padding: const MaterialStatePropertyAll(
+                            padding: const WidgetStatePropertyAll(
                               EdgeInsets.symmetric(vertical: 20),
                             ),
-                            backgroundColor: const MaterialStatePropertyAll(
+                            backgroundColor: const WidgetStatePropertyAll(
                               Color.fromARGB(255, 104, 16, 136),
                             )),
                         onPressed: () {

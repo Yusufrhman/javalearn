@@ -2,7 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:javalearn/models/article.dart';
+
 import 'package:javalearn/screen/article/article_screen.dart';
+import 'package:javalearn/screen/article/edit_article_screen.dart';
 
 class ArticleCard extends StatefulWidget {
   const ArticleCard({super.key, required this.article, required this.isAdmin});
@@ -75,6 +77,17 @@ class _ArticleCardState extends State<ArticleCard> {
           color: Color.fromARGB(255, 255, 252, 252),
           borderRadius: BorderRadius.all(Radius.circular(20))),
       child: InkWell(
+        onLongPress: () {
+          if (widget.article.authorId != _currentUser.uid) {
+            return;
+          }
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => EditArticleScreen(article: widget.article),
+            ),
+          );
+        },
         onTap: () {
           Navigator.push(
               context,
@@ -95,7 +108,6 @@ class _ArticleCardState extends State<ArticleCard> {
           decoration: const BoxDecoration(
               color: Colors.transparent,
               borderRadius: BorderRadius.all(Radius.circular(20))),
-          height: 120,
           width: MediaQuery.of(context).size.width,
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           child: Row(
@@ -103,16 +115,18 @@ class _ArticleCardState extends State<ArticleCard> {
             children: [
               Expanded(
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(10),
                       child: Image(
                         image: NetworkImage(widget.article.imageUrl),
                         fit: BoxFit.cover,
-                        width: MediaQuery.of(context).size.width * 0.25,
-                        height: MediaQuery.of(context).size.width * 0.25,
+                        width: MediaQuery.of(context).size.width * 0.2,
+                        height: MediaQuery.of(context).size.width * 0.2,
                       ),
+                    ),
+                    const SizedBox(
+                      width: 12,
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -127,6 +141,7 @@ class _ArticleCardState extends State<ArticleCard> {
                                 .textTheme
                                 .bodyMedium!
                                 .copyWith(
+                                    fontSize: 16,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.black),
                           ),
@@ -136,15 +151,15 @@ class _ArticleCardState extends State<ArticleCard> {
                           style: Theme.of(context)
                               .textTheme
                               .bodyMedium!
-                              .copyWith(color: Colors.black),
+                              .copyWith(color: Colors.black, fontSize: 14),
                         )
                       ],
                     ),
                   ],
                 ),
               ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.20,
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 10),
                 child: widget.isAdmin
                     ? Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -218,10 +233,12 @@ class _ArticleCardState extends State<ArticleCard> {
                                     ? const Icon(
                                         Icons.favorite,
                                         color: Colors.red,
+                                        size: 20,
                                       )
                                     : const Icon(
                                         Icons.favorite_border,
                                         color: Colors.red,
+                                        size: 20,
                                       ),
                               ),
                               Text(
@@ -231,7 +248,8 @@ class _ArticleCardState extends State<ArticleCard> {
                                     .bodyMedium!
                                     .copyWith(
                                         color: Colors.black,
-                                        fontWeight: FontWeight.bold),
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 14),
                               ),
                             ],
                           ),

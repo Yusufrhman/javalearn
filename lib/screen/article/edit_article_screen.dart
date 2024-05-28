@@ -8,19 +8,17 @@ import 'package:javalearn/models/article.dart';
 import 'package:javalearn/widget/article/article_image_picker.dart';
 import 'package:uuid/uuid.dart';
 
-var uuid = const Uuid();
-
-class AddArticleScreen extends StatefulWidget {
-  const AddArticleScreen({super.key});
+class EditArticleScreen extends StatefulWidget {
+  const EditArticleScreen({super.key, required this.article});
+  final Article article;
 
   @override
-  State<AddArticleScreen> createState() => _AddArticleScreenState();
+  State<EditArticleScreen> createState() => _EditArticleScreenState();
 }
 
-class _AddArticleScreenState extends State<AddArticleScreen> {
+class _EditArticleScreenState extends State<EditArticleScreen> {
   File? _selectedImage;
   final _formKey = GlobalKey<FormState>();
-  bool _isNoImage = false;
   bool _isLoading = false;
   String _enteredTitle = '';
   String _enteredDescription = '';
@@ -28,34 +26,32 @@ class _AddArticleScreenState extends State<AddArticleScreen> {
 
   final _currentUser = FirebaseAuth.instance.currentUser!;
 
-  void _submit() async {
+  void _update() async {
     final isValid = _formKey.currentState!.validate();
     if (!isValid) {
       return;
     }
-    if (_selectedImage == null) {
-      setState(() {
-        _isNoImage = true;
-      });
-      return;
-    }
+
     setState(() {
       _isLoading = true;
     });
     _formKey.currentState!.save();
-    final articleId = uuid.v4();
     var _currentDate = DateTime.now().toString();
     try {
-      final storageRef = FirebaseStorage.instance
-          .ref()
-          .child('article_images')
-          .child('$articleId.jpg');
-      await storageRef.putFile(_selectedImage!);
-      final _imageUrl = await storageRef.getDownloadURL();
+      var _imageUrl = widget.article.imageUrl;
+      if (_selectedImage != null) {
+        final storageRef = FirebaseStorage.instance
+            .ref()
+            .child('article_images')
+            .child(widget.article.id);
+        await storageRef.putFile(_selectedImage!);
+        _imageUrl = await storageRef.getDownloadURL();
+      }
+
       await FirebaseFirestore.instance
           .collection('articles')
-          .doc(articleId)
-          .set(
+          .doc(widget.article.id)
+          .update(
         {
           'userId': _currentUser.uid,
           'author': _currentUser.displayName,
@@ -64,17 +60,9 @@ class _AddArticleScreenState extends State<AddArticleScreen> {
           'image_url': _imageUrl,
           'category': _selectedCategory.name,
           'date_added': _currentDate,
-          'liked_by': [],
           'status': 'waiting'
         },
       );
-
-      await FirebaseFirestore.instance
-          .collection('users')
-          .doc(_currentUser.uid)
-          .update({
-        'articles': FieldValue.arrayUnion([articleId])
-      });
 
       setState(() {
         _isLoading = false;
@@ -95,17 +83,25 @@ class _AddArticleScreenState extends State<AddArticleScreen> {
   }
 
   @override
+  void initState() {
+    _selectedCategory = widget.article.category;
+
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 242, 242, 242),
       appBar: AppBar(
         leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(Icons.arrow_back_ios)),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(Icons.arrow_back_ios),
+        ),
         title: Text(
-          'Add Article',
+          'Edit Article',
           style: Theme.of(context).textTheme.bodyLarge,
         ),
       ),
@@ -126,6 +122,7 @@ class _AddArticleScreenState extends State<AddArticleScreen> {
                       .copyWith(fontWeight: FontWeight.bold),
                 ),
                 TextFormField(
+                  initialValue: widget.article.title,
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
                       return "Please enter a title";
@@ -162,6 +159,7 @@ class _AddArticleScreenState extends State<AddArticleScreen> {
                       .copyWith(fontWeight: FontWeight.bold),
                 ),
                 TextFormField(
+                  initialValue: widget.article.description,
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
                       return "Please enter a Description";
@@ -247,7 +245,8 @@ class _AddArticleScreenState extends State<AddArticleScreen> {
                   onSelectImage: (image) {
                     _selectedImage = image;
                   },
-                  isNoImage: _isNoImage,
+                  isNoImage: false,
+                  currentImageUrl: widget.article.imageUrl,
                 ),
                 const SizedBox(
                   height: 20,
@@ -272,10 +271,10 @@ class _AddArticleScreenState extends State<AddArticleScreen> {
                               Color.fromARGB(255, 104, 16, 136),
                             )),
                         onPressed: () {
-                          _submit();
+                          _update();
                         },
                         child: Text(
-                          "Submit",
+                          "Update",
                           style: Theme.of(context)
                               .textTheme
                               .bodyMedium!

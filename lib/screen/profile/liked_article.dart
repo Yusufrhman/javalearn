@@ -79,15 +79,17 @@ class _LikedArticleScreenState extends State<LikedArticleScreen> {
                           child: ArticleCard(
                             isAdmin: false,
                             article: Article(
-                                author: articleData['author'],
-                                id: userArticle[index],
-                                title: articleData['title'],
-                                description: articleData['description'],
-                                category: category,
-                                date: DateTime.parse(articleData['date_added']),
-                                imageUrl: articleData['image_url'],
-                                likedBy: articleData['liked_by'],
-                                status: articleData['status']),
+                              author: articleData['author'],
+                              id: userArticle[index],
+                              title: articleData['title'],
+                              description: articleData['description'],
+                              category: category,
+                              date: DateTime.parse(articleData['date_added']),
+                              imageUrl: articleData['image_url'],
+                              likedBy: articleData['liked_by'],
+                              status: articleData['status'],
+                              authorId: articleData['userId'],
+                            ),
                           ),
                         );
                       });

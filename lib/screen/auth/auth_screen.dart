@@ -55,20 +55,20 @@ class _AuthScreenState extends State<AuthScreen> {
                   children: [
                     FilledButton(
                       style: ButtonStyle(
-                          side: const MaterialStatePropertyAll(
+                          side: const WidgetStatePropertyAll(
                             BorderSide(color: Colors.grey),
                           ),
-                          shape: MaterialStatePropertyAll(
+                          shape: WidgetStatePropertyAll(
                             RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
-                          fixedSize: MaterialStatePropertyAll(Size.fromWidth(
+                          fixedSize: WidgetStatePropertyAll(Size.fromWidth(
                               MediaQuery.of(context).size.width)),
-                          padding: const MaterialStatePropertyAll(
+                          padding: const WidgetStatePropertyAll(
                             EdgeInsets.symmetric(vertical: 20),
                           ),
-                          backgroundColor: const MaterialStatePropertyAll(
+                          backgroundColor: const WidgetStatePropertyAll(
                             Color.fromARGB(255, 104, 16, 136),
                           )),
                       onPressed: () {
@@ -90,18 +90,17 @@ class _AuthScreenState extends State<AuthScreen> {
                     ),
                     FilledButton(
                       style: ButtonStyle(
-                          side: const MaterialStatePropertyAll(BorderSide(
+                          side: const WidgetStatePropertyAll(BorderSide(
                               color: Color.fromARGB(255, 104, 16, 136))),
-                          shape: MaterialStatePropertyAll(
-                              RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10))),
-                          fixedSize: MaterialStatePropertyAll(Size.fromWidth(
+                          shape: WidgetStatePropertyAll(RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10))),
+                          fixedSize: WidgetStatePropertyAll(Size.fromWidth(
                               MediaQuery.of(context).size.width)),
-                          padding: const MaterialStatePropertyAll(
+                          padding: const WidgetStatePropertyAll(
                             EdgeInsets.symmetric(vertical: 20),
                           ),
                           backgroundColor:
-                              const MaterialStatePropertyAll(Colors.white)),
+                              const WidgetStatePropertyAll(Colors.white)),
                       onPressed: () {
                         Navigator.push(
                             context,
