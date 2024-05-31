@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:javalearn/screen/auth/forgot_password.dart';
 import 'package:javalearn/screen/auth/login_checker.dart';
 import 'package:javalearn/screen/auth/register_screen.dart';
 
@@ -145,7 +146,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 Align(
                     alignment: Alignment.centerRight,
                     child: GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const ForgotPassword()));
+                        },
                         child: const Text(
                           "Forget Password?",
                           style: TextStyle(

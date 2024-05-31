@@ -121,8 +121,8 @@ class _ArticleCardState extends State<ArticleCard> {
                       child: Image(
                         image: NetworkImage(widget.article.imageUrl),
                         fit: BoxFit.cover,
-                        width: MediaQuery.of(context).size.width * 0.2,
-                        height: MediaQuery.of(context).size.width * 0.2,
+                        width: MediaQuery.of(context).size.width * 0.25,
+                        height: MediaQuery.of(context).size.width * 0.25,
                       ),
                     ),
                     const SizedBox(
@@ -141,7 +141,7 @@ class _ArticleCardState extends State<ArticleCard> {
                                 .textTheme
                                 .bodyMedium!
                                 .copyWith(
-                                    fontSize: 16,
+                                    fontSize: 18,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.black),
                           ),
@@ -151,7 +151,7 @@ class _ArticleCardState extends State<ArticleCard> {
                           style: Theme.of(context)
                               .textTheme
                               .bodyMedium!
-                              .copyWith(color: Colors.black, fontSize: 14),
+                              .copyWith(color: Colors.black, fontSize: 16),
                         )
                       ],
                     ),
@@ -161,9 +161,8 @@ class _ArticleCardState extends State<ArticleCard> {
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 child: widget.isAdmin
-                    ? Column(
+                    ? Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           InkWell(
                             onTap: () {
@@ -173,6 +172,9 @@ class _ArticleCardState extends State<ArticleCard> {
                               Icons.check,
                               color: Colors.green,
                             ),
+                          ),
+                          SizedBox(
+                            width: 10,
                           ),
                           InkWell(
                             onTap: () {
@@ -233,12 +235,12 @@ class _ArticleCardState extends State<ArticleCard> {
                                     ? const Icon(
                                         Icons.favorite,
                                         color: Colors.red,
-                                        size: 20,
+                                        size: 25,
                                       )
                                     : const Icon(
                                         Icons.favorite_border,
                                         color: Colors.red,
-                                        size: 20,
+                                        size: 25,
                                       ),
                               ),
                               Text(

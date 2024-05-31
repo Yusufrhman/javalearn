@@ -75,6 +75,7 @@ class _HistoryArticleScreenState extends State<HistoryArticleScreen> {
                           );
                         }
                         var articleData = snapshot.data!.data();
+                        print(articleData!['userId']);
                         Category category =
                             getCategoryFromString(articleData!['category']);
                         return Padding(
@@ -91,7 +92,7 @@ class _HistoryArticleScreenState extends State<HistoryArticleScreen> {
                                 imageUrl: articleData['image_url'],
                                 likedBy: articleData['liked_by'],
                                 status: articleData['status'],
-                                authorId: articleData[index]['userId']),
+                                authorId: articleData['userId']),
                           ),
                         );
                       });
