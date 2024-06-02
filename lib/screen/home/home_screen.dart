@@ -421,6 +421,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     shrinkWrap: true,
                     itemCount: articleData.length,
                     itemBuilder: (context, index) {
+                      if (index == 0) {
+                        Category category = getCategoryFromString(
+                            articleData[index]['category']);
+                        return SizedBox();
+                      }
                       Category category =
                           getCategoryFromString(articleData[index]['category']);
                       return Padding(
