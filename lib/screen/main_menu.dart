@@ -2,6 +2,7 @@ import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.da
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:javalearn/screen/article/add_article_screen.dart';
+import 'package:javalearn/screen/event/events_screen.dart';
 import 'package:javalearn/screen/home/home_screen.dart';
 import 'package:javalearn/screen/my-article/my_article_screen.dart';
 import 'package:javalearn/screen/profile/profile_screen.dart';
@@ -21,6 +22,7 @@ class _MainMenuState extends State<MainMenu> {
       isAdmin: false,
     ),
     const MyArticlesScreen(),
+    const EventsScreen(),
     const ProfileScreen(),
   ];
   changeScreen(int i) {
@@ -58,6 +60,10 @@ class _MainMenuState extends State<MainMenu> {
           BottomNavigationBarItem(
             icon: Icon(Icons.my_library_books_rounded),
             label: 'My Article',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.event),
+            label: 'Events',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person_2_rounded),
