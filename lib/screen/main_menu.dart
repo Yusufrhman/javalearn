@@ -52,6 +52,7 @@ class _MainMenuState extends State<MainMenu> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       bottomNavigationBar: BottomNavigationBar(
+        unselectedItemColor: const Color.fromARGB(255, 172, 171, 171),
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
